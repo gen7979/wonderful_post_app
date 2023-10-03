@@ -228,6 +228,7 @@ PLATFORMS
 DEPENDENCIES
   bootsnap (>= 1.4.4)
   byebug
+  devise
   devise-i18n
   devise-i18n-views
   jbuilder (~> 2.7)
