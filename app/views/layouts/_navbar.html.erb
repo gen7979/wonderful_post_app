@@ -1,9 +1,10 @@
 <nav class="navbar navbar-expand-sm navbar-light bg-light">
   <div class="container-fluid">
-    
+
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
       <% if user_signed_in? %>
+          <%= link_to 'TOP', @article %>
           <li class="nav-item">
             <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
           </li>
