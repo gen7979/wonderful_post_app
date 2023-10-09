@@ -8,6 +8,7 @@ class SampleArticlesController < ApplicationController
 
   # GET /sample_articles/1 or /sample_articles/1.json
   def show
+    # binding.pry
   end
 
   # GET /sample_articles/new
