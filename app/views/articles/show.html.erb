@@ -8,5 +8,10 @@
     <%= @article.content %>
   </div>
 </div>
-<%= link_to '編集', edit_article_path(@article), class: "btn btn-warning" %>
+<% if user_signed_in?  #サインイン時のみ編集ボタンを表示 %>
+  <% #binding.pry %>
+  <% if @article.user_id == current_user.id #記事作成者とログイン中ユーザーが同じ場合のみ編集ボタンを表示%>
+    <%= link_to '編集', edit_article_path(@article), class: "btn btn-warning" %>
+  <% end %>
+<% end %>
 <%= link_to '一覧', articles_path, class: "btn btn-secondary" %>
