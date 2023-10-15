@@ -4,9 +4,10 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
       <% if user_signed_in? %>
-          <%= link_to 'TOP', @article %>
+          <%= link_to 'TOP', articles_url %>
           <li class="nav-item">
             <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+            <%= link_to 'マイページ', mypage_index_url %>
           </li>
       <% else %>
           <li class="nav-item">
