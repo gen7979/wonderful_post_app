@@ -15,7 +15,12 @@
     <% @articles.each do |article| %>
       <% if current_user.id == article.user_id%>
         <tr>
-          <td><%= article.title %></td>
+        <td>
+          <%= article.title %>
+          <% article.tags.each do |tag| %>
+            <span class="badge rounded-pill bg-primary"><%= tag.name%></span>
+          <% end %>
+        </td>
           <td><%= article.content %></td>
           <td class="hstack gap-3">
             <%= link_to '詳細', mypage_url(article), class: "btn btn-success mr-1" %>

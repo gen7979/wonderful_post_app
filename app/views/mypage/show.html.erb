@@ -3,13 +3,15 @@
 <div class="card">
   <div class="card-header">
     <%= @article.title %>
+      <% @article.tags.each do |tag| %>
+        <span class="badge rounded-pill bg-primary"><%= tag.name%></span>
+      <% end %>
   </div>
   <div class="card-body">
     <%= @article.content %>
   </div>
 </div>
 <% if user_signed_in?  #サインイン時のみ編集ボタンを表示 %>
-  <% #binding.pry %>
   <% if @article.user_id == current_user.id #記事作成者とログイン中ユーザーが同じ場合のみ編集ボタンを表示%>
     <%= link_to '編集', edit_mypage_path(@article), class: "btn btn-warning" %>
   <% end %>
