@@ -1,9 +1,11 @@
 class MypageController < ArticlesController
 
   def index
-    # binding.pry
-    @articles = Article.all
-    # binding.pry
+    articles = Article.all
+
+    articles = articles.where("title LIKE ?", "%#{params[:title]}%") if params[:title].present?
+
+    @articles = articles.page params[:page]
   end
 
   # 新規作成の処理
@@ -20,4 +22,9 @@ class MypageController < ArticlesController
   # 削除の処理
   def destroy
   end
+
+  # def search
+  #   search_title = params[:title]
+  #   @articles = Article.where("title LIKE ?", "%#{search_title}%")
+  # end
 end
